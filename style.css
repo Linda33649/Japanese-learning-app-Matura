@@ -1,11 +1,17 @@
-body {
+.dashboard {
     width : 100%;
     display: block;
     align-items: center;
     background-color: rgb(150, 120, 115);
     overflow: auto;
 }
-h1 {
+.quizLayout{
+    background-color: rgb(120, 90, 85);
+    align-items: center;
+    display: flex;
+    overflow: hidden;
+}
+.MainHeader {
     display: block;
     text-align: center;
     margin: 0 auto;
