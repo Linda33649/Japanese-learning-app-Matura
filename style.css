@@ -8,7 +8,6 @@
 .quizLayout{
     background-color: rgb(120, 90, 85);
     align-items: center;
-    display: flex;
     overflow: hidden;
 }
 .MainHeader {
@@ -57,4 +56,41 @@
 }
 .LearningButton:hover{
     background-color: white;
+}
+.quizCharacter {
+    font-size: 10rem;
+    font-weight: 500;
+    border: 2px solid black;
+    border-radius: 5px;
+    margin: 3rem auto 5rem auto;
+    width: 50%;
+    text-align: center;
+    display: block;
+}
+.QuizHeader{
+    display: block;
+    width:80%;
+    text-align: center;
+    padding-top: 2rem;
+    margin: auto;
+}
+.AnswerButtons {
+    display: grid;
+    grid-template-columns: repeat(2, 4fr);
+    gap: 2rem;
+}
+.Answers{
+    width: 50%;
+    margin: auto;
+    padding: 2rem;
+    font-size: larger;
+    background: rgb(255, 255, 255,0.2);
+    border: 1.5px solid transparent;
+    border-radius: 2px;
+}
+.Answers:hover{
+    background-color: rgb(255, 255, 255,0.8);
+    cursor: pointer;
+    transition: 0.2s;
+
 }
