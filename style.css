@@ -61,9 +61,11 @@
 }
 .correct{
     background-color: green !important;
+    transition: 0.2s;
 }
 .wrong{
     background-color: red !important;
+    transition: 0.2s;
 }
 .quizCharacter {
     font-size: 10rem;
@@ -85,11 +87,13 @@
 .AnswerButtons {
     display: grid;
     grid-template-columns: repeat(2, 4fr);
-    gap: 2rem;
+    gap: 3rem 0;
+    justify-items: center;
+    padding: 0 7rem;
 }
 .Answers{
-    width: 50%;
-    margin: auto;
+    width: 80%;
+    margin: 0;
     padding: 2rem;
     font-size: larger;
     background: rgb(255, 255, 255,0.2);

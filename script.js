@@ -3,7 +3,7 @@ function characterRandomizer(group) {
     return group[Math.floor(Math.random() * group.length)]
 }
 const answerButtons = ["Answer1", "Answer2", "Answer3", "Answer4"]; //all answer buttons to select from
-const correctButton = answerButtons[Math.floor(Math.random() * answerButtons.length)] //selects a random button to display the right answer
+const correctButton = characterRandomizer(answerButtons) //selects a random button to display the right answer
 let vowelAnswer = characterRandomizer(HiraganaVowels)
 
 
@@ -34,7 +34,15 @@ answerButtons.forEach(buttonId => {
         } else {
             location.reload()
         }
+        event.stopPropagation() //stops the click from triggering the 2nd listener right away
     })
+})
+
+document.addEventListener("click",function(){
+    if(Answered){
+        location.reload()
+        Answered = false
+    }
 })
 
 function checkAnswer(event) {
@@ -43,7 +51,7 @@ function checkAnswer(event) {
     }
     else {
         event.target.classList.add("wrong")
-
+        document.getElementById(correctButton).classList.add("correct")
     }
 }
 
