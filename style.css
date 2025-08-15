@@ -59,6 +59,12 @@
 .LearningButton:hover{
     background-color: white;
 }
+.correct{
+    background-color: green !important;
+}
+.wrong{
+    background-color: red !important;
+}
 .quizCharacter {
     font-size: 10rem;
     font-weight: 500;

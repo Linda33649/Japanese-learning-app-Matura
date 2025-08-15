@@ -24,4 +24,27 @@ answerButtons.forEach(buttonId => { //goes through all buttons and gives them an
     }
 });
 
+let Answered = false
+
+answerButtons.forEach(buttonId => {
+    document.getElementById(buttonId).addEventListener("click", function(event) {
+        if (!Answered) {
+            Answered = true
+            checkAnswer(event)
+        } else {
+            location.reload()
+        }
+    })
+})
+
+function checkAnswer(event) {
+    if (event.target.id === correctButton) {
+        event.target.classList.add("correct")
+    }
+    else {
+        event.target.classList.add("wrong")
+
+    }
+}
+
 
