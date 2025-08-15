@@ -4,7 +4,13 @@ function characterRandomizer(group) {
 }
 const answerButtons = ["Answer1", "Answer2", "Answer3", "Answer4"]; //all answer buttons to select from
 const correctButton = characterRandomizer(answerButtons) //selects a random button to display the right answer
-let vowelAnswer = characterRandomizer(HiraganaVowels)
+let vowelAnswer
+let previousChar = localStorage.getItem("previousChar")
+do {
+    vowelAnswer = characterRandomizer(HiraganaVowels)
+} while (previousChar === vowelAnswer.char)
+previousChar = vowelAnswer.char
+localStorage.setItem("previousChar", previousChar)
 
 
 document.getElementById("VowelCharacter").textContent = vowelAnswer.char //displays a random character of the chosen group
@@ -27,7 +33,7 @@ answerButtons.forEach(buttonId => { //goes through all buttons and gives them an
 let Answered = false
 
 answerButtons.forEach(buttonId => {
-    document.getElementById(buttonId).addEventListener("click", function(event) {
+    document.getElementById(buttonId).addEventListener("click", function (event) {
         if (!Answered) {
             Answered = true
             checkAnswer(event)
@@ -38,8 +44,8 @@ answerButtons.forEach(buttonId => {
     })
 })
 
-document.addEventListener("click",function(){
-    if(Answered){
+document.addEventListener("click", function () {
+    if (Answered) {
         location.reload()
         Answered = false
     }
