@@ -1,11 +1,14 @@
+let vowelAnswer
+let Answered = false
+let previousChar = localStorage.getItem("previousChar")
+let QuestionCount = Number(localStorage.getItem("QuestionCount")) || 0; //makes sure QuestionCount is always a number and defaults to 0 if localStorage returns undefined
 
 function characterRandomizer(group) {
     return group[Math.floor(Math.random() * group.length)]
 }
 const answerButtons = ["Answer1", "Answer2", "Answer3", "Answer4"]; //all answer buttons to select from
 const correctButton = characterRandomizer(answerButtons) //selects a random button to display the right answer
-let vowelAnswer
-let previousChar = localStorage.getItem("previousChar")
+
 do {
     vowelAnswer = characterRandomizer(HiraganaVowels)
 } while (previousChar === vowelAnswer.char)
@@ -30,13 +33,13 @@ answerButtons.forEach(buttonId => { //goes through all buttons and gives them an
     }
 });
 
-let Answered = false
-
 answerButtons.forEach(buttonId => {
     document.getElementById(buttonId).addEventListener("click", function (event) {
         if (!Answered) {
             Answered = true
             checkAnswer(event)
+            QuestionCount++ 
+            localStorage.setItem("QuestionCount",QuestionCount)
         } else {
             location.reload()
         }
@@ -59,6 +62,11 @@ function checkAnswer(event) {
         event.target.classList.add("wrong")
         document.getElementById(correctButton).classList.add("correct")
     }
+}
+
+if (QuestionCount===10){
+    localStorage.removeItem("QuestionCount")
+    window.location.href = "index.html"
 }
 
 
