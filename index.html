@@ -14,21 +14,24 @@
         <div class="ProgressBar" style="width: 60%;"><span class="progress">Progress</span></div>
     </div>
     <div class="LearningButtonsGrid">
-        <button onclick="startQuiz()" class="LearningButton">あ<p class="translation">Vowels</p></button>
-        <button onclick="startQuiz()" class="LearningButton">か<p class="translation">Ka-row</p></button>
-        <button onclick="startQuiz()" class="LearningButton">さ<p class="translation">Sa-row</p></button>
-        <button onclick="startQuiz()" class="LearningButton">た<p class="translation">Ta-row</p></button>
-        <button onclick="startQuiz()" class="LearningButton">な<p class="translation">Na-row</p></button>
-        <button onclick="startQuiz()" class="LearningButton">は<p class="translation">Ha-row</p></button>
-        <button onclick="startQuiz()" class="LearningButton">ま<p class="translation">Ma-row</p></button>
-        <button onclick="startQuiz()" class="LearningButton">や<p class="translation">Ya-row</p></button>
-        <button onclick="startQuiz()" class="LearningButton">ら<p class="translation">Ra-row</p></button>
-        <button onclick="startQuiz()" class="LearningButton">わ<p class="translation">Wa-row</p></button>
-        <button onclick="startQuiz()" class="LearningButton">が<p class="translation">Dakuten</p></button>
+        <button onclick="startQuiz(HiraganaVowels)" class="LearningButton">あ<p class="translation">Vowels</p></button>
+        <button onclick="startQuiz(HiraganaK)" class="LearningButton">か<p class="translation">Ka-row</p></button>
+        <button onclick="startQuiz(HiraganaS)" class="LearningButton">さ<p class="translation">Sa-row</p></button>
+        <button onclick="startQuiz(HiraganaT)" class="LearningButton">た<p class="translation">Ta-row</p></button>
+        <button onclick="startQuiz(HiraganaN)" class="LearningButton">な<p class="translation">Na-row</p></button>
+        <button onclick="startQuiz(HiraganaH)" class="LearningButton">は<p class="translation">Ha-row</p></button>
+        <button onclick="startQuiz(HiraganaM)" class="LearningButton">ま<p class="translation">Ma-row</p></button>
+        <button onclick="startQuiz(HiraganaY)" class="LearningButton">や<p class="translation">Ya-row</p></button>
+        <button onclick="startQuiz(HiraganaR)" class="LearningButton">ら<p class="translation">Ra-row</p></button>
+        <button onclick="startQuiz(HiraganaW)" class="LearningButton">わ<p class="translation">Wa-row</p></button>
+        <button onclick="startQuiz(HiraganaDakuten)" class="LearningButton">が<p class="translation">Dakuten</p></button>
         <button onclick="startQuiz()" class="LearningButton">全<p class="translation">All</p></button>
     </div>
+    <script src="japanese-characters.js"></script>
+    <script src="script.js"></script>
     <script>
-        function startQuiz(){
+        function startQuiz(QuizGroup){
+            localStorage.setItem("QuizGroup",JSON.stringify(QuizGroup))
             window.location.href = "quiz.html"
         }
     </script>

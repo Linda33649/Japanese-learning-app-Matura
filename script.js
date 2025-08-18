@@ -2,6 +2,8 @@ let vowelAnswer
 let Answered = false
 let previousChar = localStorage.getItem("previousChar")
 let QuestionCount = Number(localStorage.getItem("QuestionCount")) || 0; //makes sure QuestionCount is always a number and defaults to 0 if localStorage returns undefined
+let QuizGroups = localStorage.getItem("QuizGroup")
+QuizGroups = JSON.parse(QuizGroups)
 
 function characterRandomizer(group) {
     return group[Math.floor(Math.random() * group.length)]
@@ -10,7 +12,7 @@ const answerButtons = ["Answer1", "Answer2", "Answer3", "Answer4"]; //all answer
 const correctButton = characterRandomizer(answerButtons) //selects a random button to display the right answer
 
 do {
-    vowelAnswer = characterRandomizer(HiraganaVowels)
+    vowelAnswer = characterRandomizer(QuizGroups)
 } while (previousChar === vowelAnswer.char)
 previousChar = vowelAnswer.char
 localStorage.setItem("previousChar", previousChar)
@@ -25,7 +27,7 @@ answerButtons.forEach(buttonId => { //goes through all buttons and gives them an
     } else {
         let wrongAnswer;
         do {
-            wrongAnswer = characterRandomizer(HiraganaVowels).romaji
+            wrongAnswer = characterRandomizer(QuizGroups).romaji
         }
         while (displayedAnswers.includes(wrongAnswer)); //lets do run as long as the answer is already displayed
         document.getElementById(buttonId).textContent = wrongAnswer
