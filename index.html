@@ -25,14 +25,15 @@
         <button onclick="startQuiz(HiraganaR)" class="LearningButton">ら<p class="translation">Ra-row</p></button>
         <button onclick="startQuiz(HiraganaW)" class="LearningButton">わ<p class="translation">Wa-row</p></button>
         <button onclick="startQuiz(HiraganaDakuten)" class="LearningButton">が<p class="translation">Dakuten</p></button>
-        <button onclick="startQuiz()" class="LearningButton">全<p class="translation">All</p></button>
+        <button onclick="startQuiz(HiraganaMerged)" class="LearningButton">全<p class="translation">All</p></button>
     </div>
     <script src="japanese-characters.js"></script>
-    <script src="script.js"></script>
+    <script src="quiz.js"></script>
     <script>
         function startQuiz(QuizGroup){
-            localStorage.setItem("QuizGroup",JSON.stringify(QuizGroup))
             window.location.href = "quiz.html"
+            localStorage.setItem("QuizGroup",JSON.stringify(QuizGroup))
+            
         }
     </script>
 </body>

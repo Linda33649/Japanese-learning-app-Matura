@@ -1,4 +1,5 @@
 //Hiragana characters
+
 const HiraganaVowels = [
     { char: "あ", romaji: "a" },
     { char: "い", romaji: "i" },
@@ -100,6 +101,7 @@ const HiraganaDakuten = [
     { char: "ぺ", romaji: "pe" },
     { char: "ぽ", romaji: "po" }
 ]
+
 
 // Katakana characters
 const katakanaVowels = [
@@ -214,3 +216,33 @@ const katakanaDakuten = [
     { char: "ペ", romaji: "pe" },
     { char: "ポ", romaji: "po" }
 ];
+
+const AllHiragana = [
+    HiraganaVowels,
+    HiraganaK,
+    HiraganaDakuten,
+    HiraganaH,
+    HiraganaM,
+    HiraganaN,
+    HiraganaR,
+    HiraganaS,
+    HiraganaT,
+    HiraganaY,
+    HiraganaW
+]
+const HiraganaMerged = AllHiragana.flat()
+
+const AllKatakana = [
+    katakanaDakuten,
+    katakanaH,
+    katakanaK,
+    katakanaM,
+    katakanaN,
+    katakanaR,
+    katakanaS,
+    katakanaT,
+    katakanaVowels,
+    katakanaW,
+    katakanaY,
+]
+const KatakanaMerged = AllKatakana.flat()
