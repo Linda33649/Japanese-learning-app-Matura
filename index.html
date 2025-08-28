@@ -14,26 +14,59 @@
         <div class="ProgressBar" style="width: 60%;"><span class="progress">Progress</span></div>
     </div>
     <div class="LearningButtonsGrid">
-        <button onclick="startQuiz(HiraganaVowels)" class="LearningButton">あ<p class="translation">Vowels</p></button>
-        <button onclick="startQuiz(HiraganaK)" class="LearningButton">か<p class="translation">Ka-row</p></button>
-        <button onclick="startQuiz(HiraganaS)" class="LearningButton">さ<p class="translation">Sa-row</p></button>
-        <button onclick="startQuiz(HiraganaT)" class="LearningButton">た<p class="translation">Ta-row</p></button>
-        <button onclick="startQuiz(HiraganaN)" class="LearningButton">な<p class="translation">Na-row</p></button>
-        <button onclick="startQuiz(HiraganaH)" class="LearningButton">は<p class="translation">Ha-row</p></button>
-        <button onclick="startQuiz(HiraganaM)" class="LearningButton">ま<p class="translation">Ma-row</p></button>
-        <button onclick="startQuiz(HiraganaY)" class="LearningButton">や<p class="translation">Ya-row</p></button>
-        <button onclick="startQuiz(HiraganaR)" class="LearningButton">ら<p class="translation">Ra-row</p></button>
-        <button onclick="startQuiz(HiraganaW)" class="LearningButton">わ<p class="translation">Wa-row</p></button>
-        <button onclick="startQuiz(HiraganaDakuten)" class="LearningButton">が<p class="translation">Dakuten</p></button>
-        <button onclick="startQuiz(HiraganaMerged)" class="LearningButton">全<p class="translation">All</p></button>
+        <button onclick="startQuiz('Vowels')" class="LearningButton"><span id="Vowel">あ</span>
+            <p class="translation">Vowels</p>
+        </button>
+        <button onclick="startQuiz('KaRow')" class="LearningButton"><span id="Ka-row">か</span>
+            <p class="translation">Ka-row</p>
+        </button>
+        <button onclick="startQuiz('SaRow')" class="LearningButton"><span id="Sa-row">さ</span>
+            <p class="translation">Sa-row</p>
+        </button>
+        <button onclick="startQuiz('TaRow')" class="LearningButton"><span id="Ta-row">た</span>
+            <p class="translation">Ta-row</p>
+        </button>
+        <button onclick="startQuiz('NaRow')" class="LearningButton"><span id="Na-row">な</span>
+            <p class="translation">Na-row</p>
+        </button>
+        <button onclick="startQuiz('HaRow')" class="LearningButton"><span id="Ha-row">は</span>
+            <p class="translation">Ha-row</p>
+        </button>
+        <button onclick="startQuiz('MaRow')" class="LearningButton"><span id="Ma-row">ま</span>
+            <p class="translation">Ma-row</p>
+        </button>
+        <button onclick="startQuiz('YaRow')" class="LearningButton"><span id="Ya-row">や</span>
+            <p class="translation">Ya-row</p>
+        </button>
+        <button onclick="startQuiz('RaRow')" class="LearningButton"><span id="Ra-row">ら</span>
+            <p class="translation">Ra-row</p>
+        </button>
+        <button onclick="startQuiz('WaRow')" class="LearningButton"><span id="Wa-row">わ</span>
+            <p class="translation">Wa-row</p>
+        </button>
+        <button onclick="startQuiz('Dakuten')" class="LearningButton"><span id="Dakuten">が</span>
+            <p class="translation">Dakuten</p>
+        </button>
+        <button onclick="startQuiz('All')" class="LearningButton"><span id="All">全</span>
+            <p class="translation">All</p>
+        </button>
+    </div>
+    <div class="SwitchContainer">
+        <button class="LearningButton" id="modeSwitch">Switch to Katakana</button>
     </div>
     <script src="japanese-characters.js"></script>
     <script src="quiz.js"></script>
+    <script src="pageSwitch.js"></script>
     <script>
-        function startQuiz(QuizGroup){
+        function startQuiz(Rows) {
+            if (PageMode == false) {
+                QuizGroup = Hiragana[Rows]
+            } else {
+                QuizGroup = Katakana[Rows]
+            }
             window.location.href = "quiz.html"
-            localStorage.setItem("QuizGroup",JSON.stringify(QuizGroup))
-            
+            localStorage.setItem("QuizGroup", JSON.stringify(QuizGroup))
+
         }
     </script>
 </body>

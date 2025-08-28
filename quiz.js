@@ -10,9 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
     QuizGroups = JSON.parse(QuizGroups)
     console.log(QuizGroups)
     console.log(localStorage.getItem("QuizGroup"))
-    QuizGroups.forEach((item, i) => {
-        console.log(i, item, item.char, item.romaji, Object.keys(item));
-    });
 
 
     function characterRandomizer(group) {

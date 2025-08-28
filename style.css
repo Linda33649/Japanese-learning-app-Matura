@@ -113,3 +113,13 @@
     padding: 0;
     margin: -40px 0 5px 0;
 }
+#modeSwitch{
+    display: block;
+    margin: auto;
+    font-size: 2rem;
+    font-weight: 1000;
+    width: 100%;
+}
+.SwitchContainer{
+    padding: 0.5rem 2rem 1rem 2rem;
+}

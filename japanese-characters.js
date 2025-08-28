@@ -217,32 +217,32 @@ const katakanaDakuten = [
     { char: "ポ", romaji: "po" }
 ];
 
-const AllHiragana = [
-    HiraganaVowels,
-    HiraganaK,
-    HiraganaDakuten,
-    HiraganaH,
-    HiraganaM,
-    HiraganaN,
-    HiraganaR,
-    HiraganaS,
-    HiraganaT,
-    HiraganaY,
-    HiraganaW
-]
-const HiraganaMerged = AllHiragana.flat()
+const Hiragana = {
+    Vowels: HiraganaVowels,
+    KaRow: HiraganaK,
+    Dakuten: HiraganaDakuten,
+    HaRow: HiraganaH,
+    MaRow: HiraganaM,
+    NaRow: HiraganaN,
+    RaRow: HiraganaR,
+    SaRow: HiraganaS,
+    TaRow: HiraganaT,
+    YaRow: HiraganaY,
+    WaRow: HiraganaW,
+}
+ Hiragana.All = Object.values(Hiragana).flat()
 
-const AllKatakana = [
-    katakanaDakuten,
-    katakanaH,
-    katakanaK,
-    katakanaM,
-    katakanaN,
-    katakanaR,
-    katakanaS,
-    katakanaT,
-    katakanaVowels,
-    katakanaW,
-    katakanaY,
-]
-const KatakanaMerged = AllKatakana.flat()
+const Katakana = {
+    Dakuten: katakanaDakuten,
+    HaRow: katakanaH,
+    KaRow: katakanaK,
+    MaRow: katakanaM,
+    NaRow: katakanaN,
+    RaRow: katakanaR,
+    SaRow: katakanaS,
+    TaRow: katakanaT,
+    Vowels: katakanaVowels,
+    WaRow: katakanaW,
+    YaRow: katakanaY,
+}
+ Katakana.All = Object.values(Katakana).flat()
