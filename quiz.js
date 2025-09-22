@@ -4,12 +4,14 @@ let Answered = false;
 let QuizLength;
 let previousChar = localStorage.getItem("previousChar");
 let QuestionCount = Number(localStorage.getItem("QuestionCount")) || 0; //makes sure QuestionCount is always a number and defaults to 0 if localStorage returns undefined
+let correctAnswer = Number(localStorage.getItem("correctAnswer")) || 0;
+let wrongAnswer = Number(localStorage.getItem("wrongAnswer")) || 0;
 
 document.addEventListener("DOMContentLoaded", () => {
   let QuizGroups = localStorage.getItem("QuizGroup");
   QuizGroups = JSON.parse(QuizGroups);
-  console.log(QuizGroups);
-  console.log(localStorage.getItem("QuizGroup"));
+  //console.log(QuizGroups);
+  //console.log(localStorage.getItem("QuizGroup"));
 
   function characterRandomizer(group) {
     return group[Math.floor(Math.random() * group.length)];

@@ -11,63 +11,74 @@
 <body class="dashboard">
     <h1 class="MainHeader">こんにちは!</h1>
     <div class="ProgressContainer">
-        <div class="ProgressBar" style="width: 60%;"><span class="progress">Progress</span></div>
+        <div class="ProgressBar" style="width: 60%;"><span class="progressText">Progress</span></div>
     </div>
     <div class="LearningButtonsGrid">
-        <button onclick="startQuiz('Vowels')" class="LearningButton"><span id="Vowel">あ</span>
+        <button id="Vowels" onclick="startQuiz('Vowels')" class="LearningButton">
+            <p class="progress">30%</p><span class="DisplayChar" id="Vowel">あ</span>
             <p class="translation">Vowels</p>
         </button>
-        <button onclick="startQuiz('KaRow')" class="LearningButton"><span id="Ka-row">か</span>
+        <button id="KaRow" onclick="startQuiz('KaRow')" class="LearningButton">
+            <p class="progress">0%</p><span class="DisplayChar" id="Ka-row">か</span>
             <p class="translation">Ka-row</p>
         </button>
-        <button onclick="startQuiz('SaRow')" class="LearningButton"><span id="Sa-row">さ</span>
+        <button id="SaRow" onclick="startQuiz('SaRow')" class="LearningButton">
+            <p class="progress">0%</p><span class="DisplayChar" id="Sa-row">さ</span>
             <p class="translation">Sa-row</p>
         </button>
-        <button onclick="startQuiz('TaRow')" class="LearningButton"><span id="Ta-row">た</span>
+        <button id="TaRow" onclick="startQuiz('TaRow')" class="LearningButton">
+            <p class="progress">0%</p><span class="DisplayChar" id="Ta-row">た</span>
             <p class="translation">Ta-row</p>
         </button>
-        <button onclick="startQuiz('NaRow')" class="LearningButton"><span id="Na-row">な</span>
+        <button id="NaRow" onclick="startQuiz('NaRow')" class="LearningButton">
+            <p class="progress">0%</p><span class="DisplayChar" id="Na-row">な</span>
             <p class="translation">Na-row</p>
         </button>
-        <button onclick="startQuiz('HaRow')" class="LearningButton"><span id="Ha-row">は</span>
+        <button id="HaRow" onclick="startQuiz('HaRow')" class="LearningButton">
+            <p class="progress">0%</p><span class="DisplayChar" id="Ha-row">は</span>
             <p class="translation">Ha-row</p>
         </button>
-        <button onclick="startQuiz('MaRow')" class="LearningButton"><span id="Ma-row">ま</span>
+        <button id="MaRow" onclick="startQuiz('MaRow')" class="LearningButton">
+            <p class="progress">0%</p><span class="DisplayChar" id="Ma-row">ま</span>
             <p class="translation">Ma-row</p>
         </button>
-        <button onclick="startQuiz('YaRow')" class="LearningButton"><span id="Ya-row">や</span>
+        <button id="YaRow" onclick="startQuiz('YaRow')" class="LearningButton">
+            <p class="progress">0%</p><span class="DisplayChar" id="Ya-row">や</span>
             <p class="translation">Ya-row</p>
         </button>
-        <button onclick="startQuiz('RaRow')" class="LearningButton"><span id="Ra-row">ら</span>
+        <button id="RaRow" onclick="startQuiz('RaRow')" class="LearningButton">
+            <p class="progress">0%</p><span class="DisplayChar" id="Ra-row">ら</span>
             <p class="translation">Ra-row</p>
         </button>
-        <button onclick="startQuiz('WaRow')" class="LearningButton"><span id="Wa-row">わ</span>
+        <button id="WaRow" onclick="startQuiz('WaRow')" class="LearningButton">
+            <p class="progress">0%</p><span class="DisplayChar" id="Wa-row">わ</span>
             <p class="translation">Wa-row</p>
         </button>
-        <button onclick="startQuiz('Dakuten')" class="LearningButton"><span id="Dakuten">が</span>
+        <button id="Dakuten" onclick="startQuiz('Dakuten')" class="LearningButton">
+            <p class="progress">0%</p><span class="DisplayChar" id="Dakuten">が</span>
             <p class="translation">Dakuten</p>
         </button>
-        <button onclick="startQuiz('All')" class="LearningButton"><span id="All">全</span>
+        <button id="All" onclick="startQuiz('All')" class="LearningButton">
+            <p class="progress">0%</p><span class="DisplayChar" id="All">全</span>
             <p class="translation">All</p>
         </button>
     </div>
     <div class="SwitchContainer">
-        <button class="LearningButton" id="modeSwitch">Switch to Katakana</button>
+        <button class="QuizButton" id="modeSwitch">Switch to Katakana</button>
     </div>
     <script src="japanese-characters.js"></script>
-    <script src="quiz.js"></script>
     <script src="pageSwitch.js"></script>
     <script src="userProgress.js"></script>
     <script>
         function startQuiz(Rows) {
-            if (PageMode == false) {
+            if (PageMode == false) { //checks whether the page is currently in hiragana or katakana mode
                 QuizGroup = Hiragana[Rows]
             } else {
                 QuizGroup = Katakana[Rows]
             }
             window.location.href = "quiz.html"
             localStorage.setItem("QuizGroup", JSON.stringify(QuizGroup))
-        }
+        }   
     </script>
 </body>
 

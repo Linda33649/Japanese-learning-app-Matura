@@ -34,7 +34,7 @@
   background-color: white;
   transition: width 0.3s ease;
 }
-.progress {
+.progressText {
   font-size: 1.5rem;
 }
 .LearningButtonsGrid {
@@ -43,7 +43,7 @@
   gap: 1.5rem;
   padding: 1.5rem 2rem 1rem 2rem;
 }
-.LearningButton {
+.LearningButton, .QuizButton {
   padding: 1.5rem;
   font-size: 10rem;
   font-weight: 500;
@@ -139,4 +139,11 @@
 }
 #correct {
   padding: 0 8rem 0 2rem;
+}
+.progress{
+  display: block;
+  font-size: 2rem;
+  font-weight: 500;
+  padding: 0;
+  margin: -5px auto -40px auto;
 }
