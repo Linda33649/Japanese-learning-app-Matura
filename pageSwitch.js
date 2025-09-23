@@ -1,4 +1,4 @@
-console.log("Hiragana before PageSwitch:", Hiragana);
+//console.log("Hiragana before PageSwitch:", Hiragana);
 let PageMode = localStorage.getItem("PageMode") === "true"; //checks whether the output string is exactly "true". If yes it becomes true and if not it becomes false
 
 document.getElementById("modeSwitch").addEventListener("click", function () {
@@ -31,18 +31,24 @@ function updateButton(QuizName) {
 
   const span = button.querySelector(".DisplayChar");
   span.textContent = sampleCharacter(QuizName);
+  
+  let ModePrefix = PageMode ? "K" : "H";
+
+  const progressDisplay = button.querySelector(".progress");
+  const progressNumber = localStorage.getItem(QuizName + ModePrefix + "Progress") ||0;
+  console.log(progressNumber)
+  progressDisplay.textContent = progressNumber + "%"
 }
 
 function sampleCharacter(Name) {
-  console.log(Name)
   if (Name === "All") {
     return "全";
   } else {
     if (PageMode) {
-      console.log(Katakana[Name][0].char)
+      //console.log(Katakana[Name][0].char)
       return Katakana[Name][0].char;
     } else {
-      console.log(Hiragana[Name][0].char)
+      //console.log(Hiragana[Name][0].char)
       return Hiragana[Name][0].char;
     }
   }

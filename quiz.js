@@ -1,7 +1,6 @@
 let vowelAnswer;
 let tries = 0;
 let Answered = false;
-let QuizLength;
 let previousChar = localStorage.getItem("previousChar");
 let QuestionCount = Number(localStorage.getItem("QuestionCount")) || 0; //makes sure QuestionCount is always a number and defaults to 0 if localStorage returns undefined
 let correctAnswer = Number(localStorage.getItem("correctAnswer")) || 0;
@@ -90,11 +89,13 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem("wrongAnswer", wrongAnswer);
     }
   }
+  let QuizLength
   if (QuizGroups.length > 10) {
     QuizLength = 15;
   } else {
     QuizLength = 10;
   }
+localStorage.setItem("QuizLength",QuizLength)
 
   if (QuestionCount === QuizLength) {
     //Ends the quiz using the variable that has the amount of answered questions stored and the variable that sets the length of the quiz depending on how many characters a quiz has
