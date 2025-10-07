@@ -31,14 +31,14 @@
 .ProgressBar {
   height: 100%;
   background-color: whitesmoke;
-  transition: width 1s ease;
+  transition: width 1s ease; /*animates progress bar*/
   overflow: visible;
   border-radius: 2px;
 }
 .progressText {
   font-size: 1.5rem;
   overflow: visible;
-  white-space: nowrap; 
+  white-space: nowrap; /*makes sure the whole Text shows on the progress bar even if the bar is not wide enough */
 }
 .LearningButtonsGrid {
   display: grid;
@@ -59,7 +59,7 @@
   transition: 0.2s;
 }
 .LearningButton:hover, .QuizButton:hover {
-  background-color: white;
+  background-color: whitesmoke;
 }
 .correct {
   background-color: green !important;

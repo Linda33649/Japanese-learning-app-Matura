@@ -15,7 +15,7 @@ document.getElementById("endPage").addEventListener("click", function () {
   localStorage.removeItem("wrongAnswer");
 });
 
-if (window.location.pathname === "/EndPage.html") {
+if (window.location.pathname.includes ("EndPage.html")) {
   document.getElementById("correct").textContent +=
     " " + correctAnswer + " questions";
   document.getElementById("wrong").textContent +=
