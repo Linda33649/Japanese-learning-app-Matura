@@ -1,5 +1,5 @@
 
-let overallprogress = Number(localStorage.getItem("progress")) || 0;
+let overallprogress = Number(localStorage.getItem("overallProgress")) || 0;
 let QuizLength = Number(localStorage.getItem("QuizLength")) || 0;
 let QuizName = localStorage.getItem("QuizName")
 let PageModePrefix = PageMode ? "K" : "H"; //checks whether the page is in Hiragana or Katakana mode
@@ -24,6 +24,8 @@ if (window.location.pathname === "/EndPage.html") {
 groupProgress = calculateProgress()
 console.log("the progress is"+ groupProgress)
 localStorage.setItem(QuizName + PageModePrefix + "Progress",groupProgress) //stores the group progress with the key for the respective group of characters and a prefix to determine whether it is the hiragana or katakana group 
+calculateOverallProgress()
+console.log("overallProgress is" + localStorage.getItem("overallProgress"))
 }
 
 
@@ -36,3 +38,21 @@ function calculateProgress(){
 }
 
 
+function calculateOverallProgress(){
+  const groups = Object.keys(Hiragana);
+  const modes = ["K","H"];
+  let totalProgress = 0;
+  let count = 0
+
+  groups.forEach(group=>{
+    modes.forEach(mode => {
+      const key = group + mode + "Progress";
+      const progress = Number(localStorage.getItem(key)) || 0;
+      totalProgress += progress;
+      count++
+    });
+  });
+
+  const calcProgress= count > 0 ? totalProgress/count : 0;
+  localStorage.setItem("overallProgress",calcProgress);
+}

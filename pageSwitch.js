@@ -31,13 +31,17 @@ function updateButton(QuizName) {
 
   const span = button.querySelector(".DisplayChar");
   span.textContent = sampleCharacter(QuizName);
-  
+
   let ModePrefix = PageMode ? "K" : "H";
 
   const progressDisplay = button.querySelector(".progress");
-  const progressNumber = localStorage.getItem(QuizName + ModePrefix + "Progress") ||0;
+  const progressNumber = localStorage.getItem(QuizName + ModePrefix + "Progress") || 0;
+  const totalProgress = Number(localStorage.getItem("overallProgress")) || 0;
+  const totalProgressRounded = Math.round(totalProgress * 10)/10 || 0;
   console.log(progressNumber)
   progressDisplay.textContent = progressNumber + "%"
+  document.querySelector(".progressText").textContent = "Total Progress: " + totalProgressRounded + "%";
+  document.querySelector(".ProgressBar").style.width = totalProgress + "%"
 }
 
 function sampleCharacter(Name) {
