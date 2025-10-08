@@ -39,6 +39,10 @@
   font-size: 1.5rem;
   overflow: visible;
   white-space: nowrap; /*makes sure the whole Text shows on the progress bar even if the bar is not wide enough */
+  padding-left: 5px;
+}
+#EndBar {
+  background-color: rgb(180, 150, 150);
 }
 .LearningButtonsGrid {
   display: grid;
@@ -46,7 +50,8 @@
   gap: 1.5rem;
   padding: 1.5rem 2rem 1rem 2rem;
 }
-.LearningButton, .QuizButton {
+.LearningButton,
+.QuizButton {
   padding: 1.5rem;
   font-size: 10rem;
   font-weight: 500;
@@ -58,7 +63,8 @@
   cursor: pointer;
   transition: 0.2s;
 }
-.LearningButton:hover, .QuizButton:hover {
+.LearningButton:hover,
+.QuizButton:hover {
   background-color: whitesmoke;
 }
 .correct {
@@ -143,7 +149,7 @@
 #correct {
   padding: 0 8rem 0 2rem;
 }
-.progress{
+.progress {
   display: block;
   font-size: 2rem;
   font-weight: 500;

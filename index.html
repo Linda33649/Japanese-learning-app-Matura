@@ -11,7 +11,8 @@
 <body class="dashboard">
     <h1 class="MainHeader">こんにちは!</h1>
     <div class="ProgressContainer">
-        <div class="ProgressBar" style="width: 0%;"><span class="progressText"></span></div>
+        <div id="DashboardProgress" class="ProgressBar" style="width: 0%;"><span id="DashboardText"
+                class="progressText"></span></div>
     </div>
     <div class="LearningButtonsGrid">
         <button id="Vowels" onclick="startQuiz('Vowels')" class="LearningButton">
@@ -78,7 +79,7 @@
             }
             window.location.href = "quiz.html"
             localStorage.setItem("QuizGroup", JSON.stringify(QuizGroup))
-            localStorage.setItem("QuizName",Rows)
+            localStorage.setItem("QuizName", Rows)
         }   
     </script>
 </body>

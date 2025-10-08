@@ -1,4 +1,3 @@
-//console.log("Hiragana before PageSwitch:", Hiragana);
 let PageMode = localStorage.getItem("PageMode") === "true"; //checks whether the output string is exactly "true". If yes it becomes true and if not it becomes false
 
 document.getElementById("modeSwitch").addEventListener("click", function () {
@@ -17,7 +16,9 @@ document.getElementById("modeSwitch").addEventListener("click", function () {
 
 window.onload = function () {
   PageSwitch();
-  this.document.getElementById("modeSwitch").textContent = PageMode ? "Switch to Hiragana" : "Switch to Katakana" //Ensures that the right text is on the button even after the page is reloaded
+  this.document.getElementById("modeSwitch").textContent = PageMode
+    ? "Switch to Hiragana"
+    : "Switch to Katakana"; //Ensures that the right text is on the button even after the page is reloaded
 };
 
 function PageSwitch() {
@@ -35,13 +36,16 @@ function updateButton(QuizName) {
   let ModePrefix = PageMode ? "K" : "H";
 
   const progressDisplay = button.querySelector(".progress");
-  const progressNumber = localStorage.getItem(QuizName + ModePrefix + "Progress") || 0;
+  const progressNumber =
+    localStorage.getItem(QuizName + ModePrefix + "Progress") || 0;
   const totalProgress = Number(localStorage.getItem("overallProgress")) || 0;
-  const totalProgressRounded = Math.round(totalProgress * 10)/10 || 0;
-  console.log(progressNumber)
-  progressDisplay.textContent = progressNumber + "%"
-  document.querySelector(".progressText").textContent = "Total Progress: " + totalProgressRounded + "%";
-  document.querySelector(".ProgressBar").style.width = totalProgress + "%"
+  const totalProgressRounded = Math.round(totalProgress * 10) / 10 || 0;
+  console.log(progressNumber);
+  progressDisplay.textContent = progressNumber + "%";
+  document.querySelector("#DashboardText").textContent =
+    "Total Progress: " + totalProgressRounded + "%";
+  document.querySelector("#DashboardProgress").style.width =
+    totalProgress + "%";
 }
 
 function sampleCharacter(Name) {
