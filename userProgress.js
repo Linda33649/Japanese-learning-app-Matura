@@ -32,6 +32,7 @@ function calculateProgress() {
   let penalty = (wrongAnswer / QuizLength) * 20;
   groupProgress = Math.min(100, groupProgress + progressIncrease - penalty);
   groupProgress = Math.max(0, groupProgress);
+  groupProgress = Math.round(groupProgress)
   return groupProgress;
 }
 

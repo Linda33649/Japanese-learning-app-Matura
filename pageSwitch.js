@@ -40,7 +40,6 @@ function updateButton(QuizName) {
     localStorage.getItem(QuizName + ModePrefix + "Progress") || 0;
   const totalProgress = Number(localStorage.getItem("overallProgress")) || 0;
   const totalProgressRounded = Math.round(totalProgress * 10) / 10 || 0;
-  console.log(progressNumber);
   progressDisplay.textContent = progressNumber + "%";
   document.querySelector("#DashboardText").textContent =
     "Total Progress: " + totalProgressRounded + "%";
