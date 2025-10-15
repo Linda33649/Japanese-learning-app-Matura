@@ -7,7 +7,8 @@
 .quizLayout {
   background-color: rgb(120, 90, 85);
   align-items: center;
-  overflow: hidden;
+  overflow: auto;
+  height:100vh
 }
 .MainHeader {
   display: block;
