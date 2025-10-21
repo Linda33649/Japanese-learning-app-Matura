@@ -42,7 +42,8 @@ document.addEventListener("DOMContentLoaded", () => {
         wrongAnswer = characterRandomizer(QuizGroups).romaji;
         tries++;
         if (tries > 20) {
-          wrongAnswer = null; //necessary for the Ya and Wa row since they only have 3 distinct answers to be displayed
+          wrongAnswer = null; //necessary for the Ya and Wa row since they only have 3 distinct answers 
+          // to be displayed
           break;
         }
       } while (displayedAnswers.includes(wrongAnswer)); //lets do run as long as the answer is already displayed

@@ -220,7 +220,6 @@ const katakanaDakuten = [
 const Hiragana = {
     Vowels: HiraganaVowels,
     KaRow: HiraganaK,
-    Dakuten: HiraganaDakuten,
     HaRow: HiraganaH,
     MaRow: HiraganaM,
     NaRow: HiraganaN,
@@ -229,20 +228,21 @@ const Hiragana = {
     TaRow: HiraganaT,
     YaRow: HiraganaY,
     WaRow: HiraganaW,
+    Dakuten: HiraganaDakuten,
 }
  Hiragana.All = Object.values(Hiragana).flat()
 
 const Katakana = {
-    Dakuten: katakanaDakuten,
-    HaRow: katakanaH,
+    Vowels: katakanaVowels,
     KaRow: katakanaK,
+    HaRow: katakanaH,
     MaRow: katakanaM,
     NaRow: katakanaN,
     RaRow: katakanaR,
     SaRow: katakanaS,
     TaRow: katakanaT,
-    Vowels: katakanaVowels,
-    WaRow: katakanaW,
     YaRow: katakanaY,
+    WaRow: katakanaW,
+    Dakuten: katakanaDakuten,
 }
  Katakana.All = Object.values(Katakana).flat()

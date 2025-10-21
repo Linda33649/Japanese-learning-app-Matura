@@ -10,6 +10,10 @@
 
 <body class="dashboard">
     <h1 class="MainHeader">こんにちは!</h1>
+    <div class="SwitchContainer">
+    <button onclick= library() class="libraryButton">
+        open characters library
+    </button></div>
     <div class="ProgressContainer">
         <div id="DashboardProgress" class="ProgressBar" style="width: 0%;"><span id="DashboardText"
                 class="progressText"></span></div>
@@ -81,6 +85,9 @@
             localStorage.setItem("QuizGroup", JSON.stringify(QuizGroup))
             localStorage.setItem("QuizName", Rows)
         }   
+        function library(){
+            window.location.href =" CharacterLibrary.html"
+        }
     </script>
 </body>
 

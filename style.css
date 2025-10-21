@@ -157,3 +157,29 @@
   padding: 0;
   margin: -5px auto -40px auto;
 }
+.libraryCharacters{
+  display: block;
+}
+.LibraryDisplay{
+  display: block;
+  background-color: rgb(255, 255, 255, 0.5) ;
+  border-radius: 3px;
+  text-align: center;
+  font-size: medium;
+  font-weight: 500;
+  padding: 1.5rem 2rem;
+  margin: auto;
+}
+#LibraryHeader{
+  color: rgb(255, 255, 255, 0.7);
+  padding: 0;
+  margin-bottom: 0;
+}
+.returnButton{
+  display: flex;
+  margin-left: auto;
+}
+.libraryButton{
+  margin: auto 0;
+  display: flex;
+}
