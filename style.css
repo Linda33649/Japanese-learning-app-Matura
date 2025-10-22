@@ -52,7 +52,9 @@
   padding: 1.5rem 2rem 1rem 2rem;
 }
 .LearningButton,
-.QuizButton {
+.QuizButton,
+.libraryButton,
+.returnButton {
   padding: 1.5rem;
   font-size: 10rem;
   font-weight: 500;
@@ -65,8 +67,11 @@
   transition: 0.2s;
 }
 .LearningButton:hover,
-.QuizButton:hover {
+.QuizButton:hover,
+.libraryButton:hover,
+.returnButton:hover {
   background-color: whitesmoke;
+  transition: 0.2s;
 }
 .correct {
   background-color: green !important;
@@ -74,7 +79,7 @@
 }
 .wrong {
   background-color: red !important;
-  transition: 0.2s;
+  transition: 0.1s;
 }
 .quizCharacter {
   font-size: 10rem;
@@ -121,7 +126,9 @@
   padding: 0;
   margin: -40px 0 5px 0;
 }
-#modeSwitch {
+#modeSwitch,
+.libraryButton,
+.returnButton {
   display: block;
   margin: auto;
   font-size: 2rem;
@@ -174,12 +181,4 @@
   color: rgb(255, 255, 255, 0.7);
   padding: 0;
   margin-bottom: 0;
-}
-.returnButton{
-  display: flex;
-  margin-left: auto;
-}
-.libraryButton{
-  margin: auto 0;
-  display: flex;
 }
