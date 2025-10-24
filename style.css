@@ -32,7 +32,7 @@
 .ProgressBar {
   height: 100%;
   background-color: whitesmoke;
-  transition: width 1s ease; /*animates progress bar*/
+  transition: width 1s ease; /*animates progress bar source: MDN*/
   overflow: visible;
   border-radius: 2px;
 }

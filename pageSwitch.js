@@ -1,4 +1,4 @@
-let PageMode = localStorage.getItem("PageMode") === "true"; //checks whether the output string is exactly "true". If yes it becomes true, if not it becomes false
+let PageMode = localStorage.getItem("PageMode") === "true"; //checks whether the output string is exactly "true". If yes it becomes true, if not it becomes false (source: ChatGpt)
 
 document.getElementById("modeSwitch").addEventListener("click", function () {
   if (PageMode == true) {

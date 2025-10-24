@@ -5,11 +5,13 @@ let PageModePrefix = PageMode ? "K" : "H"; //checks whether the page is in Hirag
 let groupProgress =
   Number(localStorage.getItem(QuizName + PageModePrefix + "Progress")) || 0;
 
-document.getElementById("endPage").addEventListener("click", function () {
+["click","keydown"].forEach((option)=>{
+  document.getElementById("endPage").addEventListener(option,function(){
   window.location.href = "index.html";
   localStorage.removeItem("correctAnswer");
   localStorage.removeItem("wrongAnswer");
-});
+  })
+})
 
 if (window.location.pathname.includes("EndPage.html")) {
   document.getElementById("correct").textContent +=

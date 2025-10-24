@@ -40,6 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
       tries = 0;
       do {
         wrongAnswer = characterRandomizer(QuizGroups).romaji;
+        
         tries++;
         if (tries > 20) {
           wrongAnswer = null; //necessary for the Ya and Wa row since they only have 3 distinct answers 
@@ -59,6 +60,9 @@ document.addEventListener("DOMContentLoaded", () => {
       .addEventListener("click", function (event) {
         if (!Answered) {
           Answered = true;
+          document.addEventListener("keydown",function(){
+            location.reload()
+          })
           checkAnswer(event);
           QuestionCount++;
           localStorage.setItem("QuestionCount", QuestionCount); //adds the amount of answered questions to localStorage since the page reloads after every question
