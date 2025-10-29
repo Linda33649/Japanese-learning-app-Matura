@@ -5,7 +5,7 @@ let PageModePrefix = PageMode ? "K" : "H"; //checks whether the page is in Hirag
 let groupProgress =
   Number(localStorage.getItem(QuizName + PageModePrefix + "Progress")) || 0;
 
-["click","keydown"].forEach((option)=>{
+["click","keydown"].forEach((option)=>{ // adds an event listener for each event contained in the array, source: Stackoverflow discussion; source of "keydown": MDN
   document.getElementById("endPage").addEventListener(option,function(){
   window.location.href = "index.html";
   localStorage.removeItem("correctAnswer");
@@ -13,8 +13,8 @@ let groupProgress =
   })
 })
 
-if (window.location.pathname.includes("EndPage.html")) {
-  document.getElementById("correct").textContent +=
+if (window.location.pathname.includes("EndPage.html")) { //executed when the end page is accessed, source: ChatGPT
+  document.getElementById("correct").textContent += // adds additional content to the p element of the end page, source: ChatGPT
     " " + correctAnswer + " questions";
   document.getElementById("wrong").textContent +=
     " " + wrongAnswer + " questions";
@@ -29,30 +29,30 @@ if (window.location.pathname.includes("EndPage.html")) {
     "Group completed to " + groupProgress + "%";
 }
 
-function calculateProgress() {
+function calculateProgress() { // calculates the group progress by dividing correct answers by quiz length and multiplying by 50 --> max progress achievable in one session is therefore set to 50%
   let progressIncrease = (correctAnswer / QuizLength) * 50;
-  let penalty = (wrongAnswer / QuizLength) * 20;
+  let penalty = (wrongAnswer / QuizLength) * 20; //calculates the penalty for wrong answers; max progress decrease in one session is set to 20%
   groupProgress = Math.min(100, groupProgress + progressIncrease - penalty);
   groupProgress = Math.max(0, groupProgress);
   groupProgress = Math.round(groupProgress)
   return groupProgress;
 }
 
-function calculateOverallProgress() {
+function calculateOverallProgress() { 
   const groups = Object.keys(Hiragana);
   const modes = ["K", "H"];
   let totalProgress = 0;
   let count = 0;
 
-  groups.forEach((group) => {
+  groups.forEach((group) => { //creates all possible progress key combinations by combining all object keys (which are equal to the button ids from the dashboard) with each page mode prefix
     modes.forEach((mode) => {
       const key = group + mode + "Progress";
       const progress = Number(localStorage.getItem(key)) || 0;
-      totalProgress += progress;
-      count++;
+      totalProgress += progress; //adds up all group progress
+      count++; // counts the total number of progress values
     });
   });
 
-  const calcProgress = count > 0 ? totalProgress / count : 0;
+  const calcProgress = count > 0 ? totalProgress / count : 0; // calculates the overall progress by dividing the progress sum by the number of values
   localStorage.setItem("overallProgress", calcProgress);
 }

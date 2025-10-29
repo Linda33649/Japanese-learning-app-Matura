@@ -7,32 +7,29 @@ let correctAnswer = Number(localStorage.getItem("correctAnswer")) || 0;
 let wrongAnswer = Number(localStorage.getItem("wrongAnswer")) || 0;
 
 document.addEventListener("DOMContentLoaded", () => {
+  //ensures that the HTML and DOM is ready. source: ChatGPT, MDN
   let QuizGroups = localStorage.getItem("QuizGroup");
   QuizGroups = JSON.parse(QuizGroups);
-  //console.log(QuizGroups);
-  //console.log(localStorage.getItem("QuizGroup"));
 
-  function characterRandomizer(group) {
+  function characterRandomizer(group) { //selects a random item from an array
     return group[Math.floor(Math.random() * group.length)];
   }
   const answerButtons = ["Answer1", "Answer2", "Answer3", "Answer4"]; //all answer buttons to select from
   const correctButton = characterRandomizer(answerButtons); //selects a random button to display the right answer
 
   do {
-    vowelAnswer = characterRandomizer(QuizGroups); //makes sure the same character is not displayed as the question twice in a row
-    console.log(vowelAnswer);
+    vowelAnswer = characterRandomizer(QuizGroups);
     tries++;
-    console.log(tries);
     if (tries > 20) break;
-  } while (previousChar === vowelAnswer.char);
+  } while (previousChar === vowelAnswer.char); //makes sure the same character is not displayed as the question twice in a row
   previousChar = vowelAnswer.char;
   localStorage.setItem("previousChar", previousChar);
 
-  document.getElementById("VowelCharacter").textContent = vowelAnswer.char; //displays a random character of the chosen group
+  document.getElementById("VowelCharacter").textContent = vowelAnswer.char; //displays the randomly chosen character as the question
   const displayedAnswers = [vowelAnswer.romaji];
 
   answerButtons.forEach((buttonId) => {
-    //goes through all buttons and gives them an answer
+    //goes through all buttons and gives them an answer, source of forEach(): flexiple
     if (buttonId === correctButton) {
       document.getElementById(correctButton).textContent = vowelAnswer.romaji;
     } else {
@@ -40,11 +37,10 @@ document.addEventListener("DOMContentLoaded", () => {
       tries = 0;
       do {
         wrongAnswer = characterRandomizer(QuizGroups).romaji;
-        
+
         tries++;
         if (tries > 20) {
-          wrongAnswer = null; //necessary for the Ya and Wa row since they only have 3 distinct answers 
-          // to be displayed
+          wrongAnswer = null; //necessary for the Ya and Wa row since they only have 3 distinct answers to be displayed
           break;
         }
       } while (displayedAnswers.includes(wrongAnswer)); //lets do run as long as the answer is already displayed
@@ -60,16 +56,16 @@ document.addEventListener("DOMContentLoaded", () => {
       .addEventListener("click", function (event) {
         if (!Answered) {
           Answered = true;
-          document.addEventListener("keydown",function(){
-            location.reload()
-          })
+          document.addEventListener("keydown", function () {
+            location.reload();
+          });
           checkAnswer(event);
           QuestionCount++;
           localStorage.setItem("QuestionCount", QuestionCount); //adds the amount of answered questions to localStorage since the page reloads after every question
         } else {
           location.reload(); //makes sure that the page reloads on the second click since a second click on a button won't reach the document event listener due to the stopPropagation
         }
-        event.stopPropagation(); //stops the click from triggering the 2nd listener right away
+        event.stopPropagation(); //stops the click from triggering the 2nd listener right away, source: Medium
       });
   });
 
@@ -94,13 +90,13 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem("wrongAnswer", wrongAnswer);
     }
   }
-  let QuizLength
+  let QuizLength; // sets the Quiz length to 10 questions for all groups except "dakuten" and "All", they are set to 15 questions
   if (QuizGroups.length > 10) {
     QuizLength = 15;
   } else {
     QuizLength = 10;
   }
-localStorage.setItem("QuizLength",QuizLength)
+  localStorage.setItem("QuizLength", QuizLength);
 
   if (QuestionCount === QuizLength) {
     //Ends the quiz using the variable that has the amount of answered questions stored and the variable that sets the length of the quiz depending on how many characters a quiz has

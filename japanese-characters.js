@@ -230,7 +230,7 @@ const Hiragana = {
     WaRow: HiraganaW,
     Dakuten: HiraganaDakuten,
 }
- Hiragana.All = Object.values(Hiragana).flat()
+ Hiragana.All = Object.values(Hiragana).flat() //flattens the arrays inside the hiragana object to one big array, source: MDN
 
 const Katakana = {
     Vowels: katakanaVowels,

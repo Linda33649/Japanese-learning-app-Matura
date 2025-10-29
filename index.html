@@ -10,11 +10,11 @@
 
 <body class="dashboard">
     <h1 class="MainHeader">こんにちは!</h1>
-    <div class="ProgressContainer">
+    <div class="ProgressContainer"> <!--displays the overall progress bar-->
         <div id="DashboardProgress" class="ProgressBar" style="width: 0%;"><span id="DashboardText"
                 class="progressText"></span></div>
     </div>
-    <div class="LearningButtonsGrid">
+    <div class="LearningButtonsGrid"> <!--creates the quiz buttons and their container-->
         <button id="Vowels" onclick="startQuiz('Vowels')" class="LearningButton">
             <p class="progress">30%</p><span class="DisplayChar" id="Vowel">あ</span>
             <p class="translation">Vowels</p>
@@ -64,10 +64,10 @@
             <p class="translation">All</p>
         </button>
     </div>
-    <div class="SwitchContainer">
+    <div class="SwitchContainer"> <!--displays the mode switch button-->
         <button class="QuizButton" id="modeSwitch">Switch to Katakana</button>
     </div>
-     <div class="SwitchContainer">
+     <div class="SwitchContainer"> <!--displays the button that opens the library-->
     <button onclick= library() class="libraryButton">
         Character Library
     </button></div>

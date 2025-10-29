@@ -39,7 +39,7 @@
 .progressText {
   font-size: 1.5rem;
   overflow: visible;
-  white-space: nowrap; /*makes sure the whole Text shows on the progress bar even if the bar is not wide enough */
+  white-space: nowrap; /*makes sure the whole Text shows on the progress bar even if the bar is not wide enough, source: MDN */
   padding-left: 5px;
 }
 #EndBar {
@@ -47,7 +47,7 @@
 }
 .LearningButtonsGrid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr); /*creates the container for the dashboard quiz buttons, sources: W3schools,CSS-tricks*/
   gap: 1.5rem;
   padding: 1.5rem 2rem 1rem 2rem;
 }
@@ -74,11 +74,11 @@
   transition: 0.2s;
 }
 .correct {
-  background-color: green !important;
+  background-color: rgb(42, 131, 42) !important;
   transition: 0.2s;
 }
 .wrong {
-  background-color: red !important;
+  background-color: rgb(158, 43, 43) !important;
   transition: 0.1s;
 }
 .quizCharacter {
